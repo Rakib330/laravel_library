@@ -1,0 +1,849 @@
+:root{
+    --main-color:#006633 ;
+    --second-color:#CC3333;
+    --bg-white:#fff;
+    --content-white:#999;
+    --font: sans-serif;
+}
+*{
+    padding: 0;
+    margin:0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background: var(--bg-white); 
+}
+#toggler{
+    display: none;
+}
+/*sidebar----------------------------------------------------*/
+.sidebar{
+    width: 240px;
+    height: 100vh;
+    background: #f7f7f7;
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: 1s;
+    box-shadow: 0 1px 2px #333,0 1px 5px #333;
+    z-index: 20;
+}
+.sidebar .sidebar-header{
+    background: var(--second-color);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px 0;
+}
+.sidebar-header svg{
+    width:40px;
+    display: none;
+    transition: .3s;
+}
+.sidebar a.logoname{
+    color:var(--bg-white);
+    font-size: 20px;
+    font-weight: 900;
+    font-family: var(--font);
+    transition: .3s;
+}
+.sidebar .sidebar-body{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+#toggle-btn{
+    position: absolute;
+    top:10px;
+    right: -25px;
+    width:50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-white);
+    color:var(--second-color);
+    border-radius: 50%;
+    border:2px solid var(--main-color);
+    box-shadow: -1px -1px 1px rgba(255, 255, 255, 0.3), 2px 2px 2px rgba(0, 0, 0, 0.2), 5px 5px 5px rgba(0, 0, 0, 0.2); 
+    transition: .3s;
+}
+#toggle-btn:hover{
+    font-size: 30px;
+}
+.toggle-btn label{
+    transition: 1s;
+}
+.toggle-btn label:hover{
+    cursor: pointer;
+}
+.admin-profile{
+    padding:20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.admin-profile .admin-img{
+    width:80px;
+    height: 80px;
+    margin-bottom:10px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--second-color);
+    transition: .3s;
+}
+.admin-profile .admin-img img{
+    width:100%;
+    height: 100%;
+}
+.admin-profile h3{
+    font-size: 12px;
+    font-family: var(--font);
+    color:var(--second-color);
+    font-weight: 1000;
+    transition: .3s;
+}
+.sidebar .sidebar-body li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+    color:var(--main-color);
+    transition:.3s;
+    padding-left: 40px;
+    transition: .3s;
+}
+.sidebar .sidebar-body li:hover{
+    background: var(--main-color);
+}
+.sidebar .sidebar-body li:hover a{
+    color:var(--bg-white);
+}
+.sidebar .sidebar-body li a {
+    color:var(--main-color);
+    font-family: var(--font);
+}
+.sidebar .sidebar-body li a span:first-child{
+    padding:0 10px;
+    font-size: 20px;
+}
+.sidebar .sidebar-footer{
+
+    background: var(--second-color);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.sidebar .sidebar-footer a{
+    color:var(--bg-white);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--font);
+    transition: .3s;
+}
+.sidebar-footer:hover a{
+    font-size: 20px;
+}
+
+#toggler:checked ~ .sidebar{
+    width: 60px;
+}
+#toggler:checked ~ .sidebar .sidebar-body .toggle-btn{
+    right: -15px;
+    width:30px;
+    height: 30px;
+}
+#toggler:checked ~ .sidebar .sidebar-body .toggle-btn label{
+    transform: rotate(180deg);
+}
+#toggler:checked ~ .sidebar a.logoname{
+    display: none;
+}
+#toggler:checked ~ .sidebar .sidebar-header{
+    background: none;
+    transition: .3s;
+}
+#toggler:checked ~ .sidebar .sidebar-header svg{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    transition: .3s;
+}
+#toggler:checked ~ .sidebar .sidebar-body .admin-profile .admin-img{
+    width:40px;
+    height: 40px;
+    border: 3px solid var(--main-color);
+    transition: .3s;
+}
+#toggler:checked ~ .sidebar .sidebar-body .admin-profile h3{
+    display: none;
+    font-size: 10px;
+    transition: .3s;
+}
+#toggler:checked ~ .sidebar .sidebar-body li{
+    padding-left: 0px;
+    display: flex;
+    justify-content: center;
+    transition: .3s;
+}
+#toggler:checked ~ .sidebar .sidebar-footer{
+    background: var(--second-color);
+}
+#toggler:checked ~ .sidebar .sidebar-footer a{
+    color:var(--bg-white);
+}
+#toggler:checked ~ .sidebar .sidebar-footer a span:last-child{
+    display: none;
+}
+#toggler:checked ~ .sidebar .sidebar-body a span:last-child{
+    display: none;
+    transition-delay: 1s;
+}
+#toggler:checked ~ .main{
+    width: calc(100%-60px);
+    margin-left: 60px;
+}
+#toggler:checked ~ .main .main-header{
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+
+
+/*main & header-----------------------------------------*/
+.main{
+    width: calc(100%-240px);
+    margin-left: 240px;
+    transition: 1s;
+}
+.main-header{
+    position: fixed;
+    top: 0;
+    left: 240px;
+    z-index: 2;
+    width: calc(100% - 240px);
+    background: var(--main-color);
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    box-shadow: 1px 0px 3px #333,2px 0px 5px #333;
+}
+.main-header h1{
+    color:var(--bg-white);
+    font-size: 20px;
+    font-family: var(--font);
+    padding:10px 0;
+}
+
+
+
+/*add------------------------------------------------------*/
+.main .main-content{
+    width:100%;
+    background: #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.main .main-content .add{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    background: #f0fff0;
+    font-family: var(--font);
+}
+.main .main-content .manage h3,
+.main .main-content .add h3{
+    display: block;
+    color: var(--main-color);
+    font-size: 20px;
+    padding-top:10px;
+    text-align: center;
+}
+.main .main-content .manage h2,
+.main .main-content .add h2{
+    display: block;
+    color: var(--main-color);
+    font-size: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.main .main-content .add .form-box{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.main .main-content .add .form-box .inputs{
+    display: flex;
+    flex-direction: column;
+    width:20%;
+    margin:5px 10px;
+    position: relative;
+}
+.main .main-content .add .form-box .inputs label{
+    position: absolute;
+    top:-15px;
+    left:10px;
+    font-size: 11px;
+    color:var(--second-color);
+    text-align: center;
+    font-weight: 1000;
+    /*background: #f0fff0;*/
+    padding: 3px;
+    border-radius: 15px;
+}
+.main .main-content .add .form-box .inputs select,
+.main .main-content .add .form-box .inputs textarea,
+.main .main-content .add .form-box .inputs input{
+    width:100%;
+    height: 25px;
+    background: #f0fff0;
+    border: none;
+    box-shadow: 1px 1px 5px #999;
+    font-family: var(--font);
+    border-radius: 5px;
+    margin:5px 0;
+}
+.main .main-content .add .form-box .inputs select:focus,
+.main .main-content .add .form-box .inputs textarea:focus,
+.main .main-content .add .form-box .inputs input:focus{
+    outline: none;
+    box-shadow: 1px 1px 5px var(--main-color);
+}
+
+.main .main-content .add .form-box .inputs #image{
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+    width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.main .main-content .add .submit-btn{
+    width:20%;
+    margin:5px 10px;
+}
+
+
+.main .main-content .add form .submit-btn input[type=submit]{
+    width:100%;
+    height: 30px;
+    background: var(--second-color);
+    border: none;
+    color:var(--bg-white);
+    font-family: var(--font);
+    font-weight: 1000;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+.main .main-content .add form .submit-btn input[type=submit]:hover{
+    background: red;
+    font-size: 20px
+}
+
+/*manage-----------------------------------------------------------*/
+.main .main-content{
+    margin-bottom: 500px;
+}
+.main .main-content .manage{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font);
+    background: var(--bg-white);
+}
+.manage .manage-body{
+    width: 90%;
+    overflow-y: auto;
+    overflow-X: auto;
+
+}
+.manage .manage-body table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.manage .manage-body table thead th{
+    background: var(--main-color);
+    color:var(--bg-white);
+    height: 30px;
+}
+tbody tr{
+    transition: .3s;
+    z-index: 40;
+}
+tbody tr:nth-child(even){
+    background: #f0fff0;
+}
+tbody tr:hover{
+    background: #A9F5A9;
+}
+tbody tr:hover td{
+    color: var(--main-color);
+}
+tbody td{
+    color:#666;
+    padding: 0 5px;
+    border-top: 2px solid #fff;
+}
+tbody td input,select{
+    width: 100%;
+    height: 25px;
+    background: #f0fff0;
+    border: none;
+    box-shadow: 1px 1px 1px #e8e8e8;
+    font-family: var(--font);
+    border-radius: 5px;
+    margin:5px 0; 
+}
+/*-------------------------------------------------------*/
+tbody td textarea[name=issueinfo]{}
+tbody td textarea[name=bookinfo]{
+    width:100px;
+}
+tbody td input[name=bookname],
+tbody td select[name=bookname],
+tbody td select[name=username],
+tbody td select[name=categoryid],
+tbody td select[name=authorid]{
+    width:110px;
+}
+tbody td input[name=bookSKU]{
+    width:40px;
+}
+tbody td input[name=bookprice],
+tbody td input[name=available]{
+    width:30px;
+}
+tbody td input[type=file]{
+    width:100px;
+    display: block;
+    margin: 0 auto;
+}
+tbody td textarea{
+    width:100%;
+    height: 50px;
+    background: #f0fff0;
+    border: none;
+    box-shadow: 1px 1px 1px #e8e8e8;
+    font-family: var(--font);
+    border-radius: 5px;
+    margin:5px 0; 
+}
+tbody td input[type=submit]{
+    background: var(--second-color);
+    border: none;
+    color:var(--bg-white);
+    font-family: var(--font);
+    font-weight: 700;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+tbody td img{
+    width:30px;
+}
+tbody td a.delete{
+    /*    width: 50px;
+        height: 30px;*/
+    padding:9px 5px;
+    background: var(--second-color);
+    border: none;
+    border-radius: 15px;
+    color:var(--bg-white);
+    cursor: pointer;
+}
+tbody td a.finish{
+    padding:8px;
+    font-weight: 800;
+    background: green;
+    border: none;
+    border-radius: 15px;
+    color:var(--bg-white);
+    cursor: pointer;
+    transition: .3s;
+}
+tbody td a.finish:hover{
+    font-size: 15px;
+    padding:4px;
+}
+tbody td a .b2{
+    width: 100px;
+    height: 30px;
+    background: orange;
+    border: none;
+    border-radius: 15px;
+    color:var(--bg-white);
+    cursor: pointer;
+}
+tbody td a .b1{
+    width: 100px;
+    height: 30px;
+    background: #00cc66;
+    border: none;
+    border-radius: 15px;
+    color:var(--bg-white);
+    cursor: pointer;
+}
+tbody td a .bx{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--second-color);
+    border-radius: 50%;
+    font-size: 15px;
+    color: var(--bg-white);
+    border:none;
+    cursor: pointer;
+    margin-left: 20px;
+}
+/*tbody td:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}*/
+
+
+
+/*dash content------------------------------------------------------*/
+
+.main .main-content .dash-cont{
+    width: 100%;
+    background: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+}
+.main .main-content .dash-cont .dash-inprocess,
+.main .main-content .dash-cont .dash-quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background: var(--bg-white);
+    padding:0 20px;
+    margin:10px 0;
+}
+.main .main-content .dash-cont .dash-inprocess h2,
+.main .main-content .dash-cont .dash-quantity h2{
+    font-size: 20px;
+    color:var(--main-color);
+    padding:5px;
+    border-bottom: 1px solid var(--main-color);
+    font-family: var(--font);
+}
+.main .main-content .dash-cont .dash-inprocess .process-cards,
+.main .main-content .dash-cont .dash-quantity .quantity-cards{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:10px;
+
+}
+.main .main-content .dash-cont .dash-inprocess .process-card,
+.main .main-content .dash-cont .dash-quantity .quantity-cards .dash-card{
+    box-shadow: 1px 1px 1px var(--main-color),1px 1px 10px var(--main-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border-radius: 15px;
+    padding:10px;
+}
+.main .main-content .dash-cont .dash-quantity .quantity-cards .dash-card span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    color:var(--main-color);
+    font-family: var(--font);
+}
+.dash-cont .dash-quantity .quantity-cards .dash-card span h4{
+    font-size: 20px;
+    padding-left:10px;
+    color:var(--second-color);
+}
+.dash-cont .dash-quantity .quantity-cards .dash-card span h3{
+    font-size: 15px;
+    color:var(--main-color);
+    padding-top:5px;
+}
+.main .main-content .dash-cont .dash-inprocess .process-card .process-ring{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.process-ring svg{
+
+    width: 90px;
+    height: 90px;
+    transform: rotate(-90deg);
+}
+.process-ring svg circle{
+    width: 100%;
+    height: 100%;
+    fill:none;
+    stroke:  #009933;
+    stroke-width:10;
+    stroke-linecap:round;
+    transform: translate(5px,5px);
+    stroke-dasharray: 260;
+    stroke-dashoffset: 260;
+}
+svg circle:nth-child(1){
+    stroke-dashoffset: 0;
+    stroke:  #98FB98	;
+}
+.process-card:nth-child(1) svg circle:last-child{
+    stroke-dashoffset: calc(260 - ( 260 * {{$issued_book}} ) / 100);
+    stroke: darkgreen;
+}
+.process-card:nth-child(2) svg circle:last-child{
+    stroke-dashoffset: calc(260 - ( 260 * {{$ntrtnd}} ) / 100);
+    stroke: red;
+}
+.process-card:nth-child(3) svg circle:last-child{
+    stroke-dashoffset: calc(260 - ( 260 * 50 ) / 100);
+    stroke: blue;
+}
+.process-card:nth-child(4) svg circle:last-child{
+    stroke-dashoffset: calc(260 - ( 260 * 75 ) / 100);
+    stroke: orange;
+}
+.ring-number{
+    position: absolute;
+    top:35%;
+    left:0;
+    z-index: 100;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ring-number h5{
+    font-size: 25px;
+    color:var(--second-color);
+    font-family: var(--font);
+    transition: .3s;
+}
+.process-card h3{
+    font-size: 15px;
+    padding:5px 0;
+    font-weight: 600;
+    color:var(--main-color);
+    font-family: var(--font);
+}
+.process-card:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 1px var(--second-color),1px 1px 10px var(--second-color);
+}
+.process-card:hover .ring-number h5{
+    font-size: 35px;
+}
+.dash-chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.dash-chart:hover h1{
+    color:var(--second-color);
+}
+.dash-chart h1{
+    font-size: 100px;
+    font-family: var(--font);
+    color:var(--main-color);
+    opacity: .25;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.footer{
+    height:50px;
+    background: var(--main-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font);
+}
+.footer p{
+    color:var(--bg-white);
+    font-weight: 1000;
+    font-size: 12px;
+}
+@media only screen and (max-width:800px) {
+    #toggle-btn{
+        display: none;
+    }
+    .sidebar{
+        width: 60px;
+    }
+    .sidebar .sidebar-body .toggle-btn{
+        right: -15px;
+        width:30px;
+        height: 30px;
+    }
+    .sidebar .sidebar-body .toggle-btn label{
+        transform: rotate(180deg);
+    }
+    .sidebar a.logoname{
+        display: none;
+    }
+    .sidebar .sidebar-header{
+        background: none;
+        transition: .3s;
+    }
+    .sidebar .sidebar-header svg{
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        transition: .3s;
+    }
+    .sidebar .sidebar-body .admin-profile .admin-img{
+        width:40px;
+        height: 40px;
+        border: 3px solid var(--main-color);
+        transition: .3s;
+    }
+    .sidebar .sidebar-body .admin-profile h3{
+        display: none;
+        font-size: 10px;
+        transition: .3s;
+    }
+    .sidebar .sidebar-body li{
+        padding-left: 0px;
+        display: flex;
+        justify-content: center;
+        transition: .3s;
+    }
+    .sidebar .sidebar-footer{
+        background: var(--second-color);
+    }
+    .sidebar .sidebar-footer a{
+        color:var(--bg-white);
+    }
+    .sidebar .sidebar-footer a span:last-child{
+        display: none;
+    }
+    .sidebar .sidebar-body a span:last-child{
+        display: none;
+        transition-delay: 1s;
+    }
+    .main{
+        width: calc(100%-60px);
+        margin-left: 60px;
+    }
+    .main .main-header{
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+    .main .main-content .add .form-box .inputs{
+        margin:0px 5px;
+    }
+    .main .main-content .add .form-box .inputs select,
+    .main .main-content .add .form-box .inputs textarea,
+    .main .main-content .add .form-box .inputs input{
+        font-size: 11px;
+    }
+    .main .main-content .add .form-box .inputs label{
+        top:-5px;
+        font-size: 8px;
+        padding: 0px;
+    }
+    .manage .manage-body table td,
+    .manage .manage-body table th{
+        font-size: 10px;
+    }
+    .manage .manage-body table td a,
+    .manage .manage-body table td a button{
+        font-size: 11px;
+    }
+    .manage .manage-body table td select,
+    .manage .manage-body table td textarea,
+    .manage .manage-body table td input{
+        font-size: 11px;
+    }
+
+
+    tbody td textarea[name=authorinfo],
+    tbody td textarea[name=userinfo],
+    tbody td textarea[name=issueinfo],
+    tbody td textarea[name=bookinfo]{
+        width:80px;
+    }
+    tbody td input[name=userroll],
+    tbody td input[name=authorname],
+    tbody td input[name=username],
+    tbody td input[name=bookname],
+    tbody td select[name=bookname],
+    tbody td select[name=username],
+    tbody td select[name=categoryid],
+    tbody td select[name=authorid]{
+        width:60px;
+    }
+    tbody td input[name=userdue],
+    tbody td input[name=bookSKU],
+    tbody td input[name=bookprice],
+    tbody td input[name=available]{
+        width:30px;
+    }
+    tbody td input[type=file]{
+        width:70px;
+    }
+    tbody td textarea{
+        width:100%;
+        height: 50px;
+        background: #f0fff0;
+        border: none;
+        box-shadow: 1px 1px 2px #999;
+        font-family: var(--font);
+        border-radius: 5px;
+        margin:5px 0; 
+    }
+
+
+    .dash-cont .dash-quantity .quantity-cards .dash-card span h3{
+        font-size: 11px;
+    }
+
+    .footer p{
+        font-weight: 700;
+        font-size: 10px;
+        text-align: center;
+    }
+
+}
