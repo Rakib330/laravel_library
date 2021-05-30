@@ -79,7 +79,7 @@
                 @yield('dash-content')
             </div>
 
-<div class="footer"><p>© 2021 Copyright, Design & Developed By <span style="color:#ff6767;">MD Rakibul Hasan</span> & <span style="color:#ff6767;">MD Jobayer Hossain</span></p></div>
+<div class="footer"><p>© 2021 Copyright, Design & Developed By <span style="color:#ff6767;">MD Rakibul Hasan</span></p></div>
         
         </div>
 
