@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\Http",
+    "\\app\\Http\\Controllers",
+    "\\public",
+    "\\public\\adminPanel",
+    "\\public\\adminPanel\\book_Images",
+    "\\resources",
+    "\\resources\\views",
+    "\\resources\\views\\admin"
+  ],
+  "SelectedNode": "\\resources\\views",
+  "PreviewInSolutionExplorer": false
+}
